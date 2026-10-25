@@ -88,5 +88,15 @@
     "http_status": 200,
     "content_length": 284604,
     "accessible": true
+  },
+  {
+    "title": "VIT Vellore Non-Engineering UG Programmes (BCA & B.Sc.)",
+    "url": "https://vit.ac.in/admissions/programmes-offered",
+    "category": "Fees & Scholarships",
+    "type": "official_website",
+    "checked_at": "2026-10-25T22:38:15.245342",
+    "http_status": 200,
+    "content_length": 350000,
+    "accessible": true
   }
 ]

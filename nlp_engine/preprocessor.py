@@ -39,6 +39,17 @@ ACRONYM_MAP = {
     r"\blpa\b": "lpa lakhs per annum salary",
     r"\bpcm\b": "pcm physics chemistry mathematics",
     r"\bpcb\b": "pcb physics chemistry biology",
+    r"\blh\b": "ladies hostel girls hostel female accommodation",
+    r"\bmh\b": "mens hostel boys hostel male accommodation",
+    r"\bgirls?\s*hostels?\b": "ladies hostel girls hostel female accommodation",
+    r"\bladies\s*hostels?\b": "ladies hostel girls hostel female accommodation",
+    r"\bwomens?\s*hostels?\b": "ladies hostel girls hostel female accommodation",
+    r"\bbca\b": "bca bachelor of computer applications",
+    r"\bb\.?\s*sc\b": "bsc bachelor of science",
+    r"\binteg(?:rated)?\s*m\.?\s*tech\b": "integrated mtech 5 year programme software engineering cse",
+    r"\bint\s*mtech\b": "integrated mtech 5 year programme software engineering cse",
+    r"\bmtech\s*integ(?:rated)?\b": "integrated mtech 5 year programme software engineering cse",
+    r"\bviscom\b": "visual communication v-sign",
 }
 
 # Negation words that must NOT be removed as stopwords
@@ -122,7 +133,16 @@ class TextPreprocessor:
             "course_codes": [],
             "fees_and_packages": [],
             "years": [],
-            "has_negation": False
+            "has_negation": False,
+            "is_ladies_hostel": False,
+            "is_mens_hostel": False,
+            "is_bca": False,
+            "is_bsc": False,
+            "is_integrated_mtech": False,
+            "is_contact_query": False,
+            "is_fee_query": False,
+            "is_fee_include_hostel": False,
+            "is_official_fee_structure_query": False
         }
         
         # Course codes
@@ -142,4 +162,44 @@ class TextPreprocessor:
         if words.intersection(CRITICAL_NEGATIONS):
             entities["has_negation"] = True
             
+        t_low = text.lower()
+        
+        # Ladies Hostel detection
+        if any(w in t_low for w in ["ladies hostel", "girls hostel", "girl hostel", "women hostel", "womens hostel", "female hostel", "girls' hostel", "ladies' hostel"]) or (re.search(r"\blh\b", t_low) and any(w in t_low for w in ["hostel", "block", "room", "fee", "cost", "contact", "warden"])):
+            entities["is_ladies_hostel"] = True
+        elif any(w in t_low for w in ["ladies", "girl", "girls", "female", "women"]) and any(w in t_low for w in ["hostel", "room", "accommodation", "stay", "mess"]):
+            entities["is_ladies_hostel"] = True
+
+        # Men's Hostel detection
+        if any(w in t_low for w in ["mens hostel", "men hostel", "boys hostel", "boy hostel", "male hostel", "men's hostel", "boys' hostel"]) or (re.search(r"\bmh\b", t_low) and any(w in t_low for w in ["hostel", "block", "room", "fee", "cost", "contact"])):
+            entities["is_mens_hostel"] = True
+
+        # BCA detection
+        if re.search(r"\bbca\b", t_low) or "bachelor of computer applications" in t_low:
+            entities["is_bca"] = True
+
+        # B.Sc. detection
+        if (re.search(r"\bb\.?\s*sc\b", t_low) or "bachelor of science" in t_low) and not entities["is_bca"]:
+            entities["is_bsc"] = True
+
+        # Integrated M.Tech detection
+        if any(w in t_low for w in ["integrated m.tech", "integrated mtech", "integ mtech", "int mtech", "5 year mtech", "5-year mtech", "m.tech integrated"]):
+            entities["is_integrated_mtech"] = True
+
+        # Contact query detection
+        if any(w in t_low for w in ["contact", "phone", "number", "email", "whom to contact", "who to contact", "who can i contact", "give me the official contact", "helpline", "warden", "call", "reach"]):
+            entities["is_contact_query"] = True
+
+        # Fee query detection
+        if any(w in t_low for w in ["fee", "fees", "cost", "how much", "tuition", "charge", "charges", "price", "expensive"]):
+            entities["is_fee_query"] = True
+
+        # Does fee include hostel detection
+        if any(w in t_low for w in ["include hostel", "includes hostel", "including hostel", "include mess", "includes mess", "hostel included", "mess included"]):
+            entities["is_fee_include_hostel"] = True
+
+        # Where can I find official fee structure
+        if ("where" in t_low or "link" in t_low or "portal" in t_low) and any(w in t_low for w in ["official fee", "fee structure", "fees structure", "current fee", "fee schedule"]):
+            entities["is_official_fee_structure_query"] = True
+
         return entities

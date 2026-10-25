@@ -5,6 +5,7 @@ Combines Semantic Embeddings, Word TF-IDF, Character N-grams, RapidFuzz,
 and Entity Boosts into a calibrated multi-stage retrieval system.
 """
 
+import re
 from typing import List, Dict, Optional, Tuple
 import numpy as np
 from nlp_engine.preprocessor import TextPreprocessor
@@ -95,6 +96,71 @@ class HybridRanker:
             # Category filter bonus if user requested specific domain
             if category_filter and faq.get("category", "").lower() == category_filter.lower():
                 bonus += 0.08
+
+            q_faq = faq["question"].lower()
+            a_faq = faq["answer"].lower()
+            text_faq = q_faq + " " + a_faq
+            text_faq_clean = re.sub(r"['’]", "", text_faq)
+            q_faq_clean = re.sub(r"['’]", "", q_faq)
+
+            # Intent categorization of FAQ
+            is_faq_fee = ("fee" in q_faq_clean or "cost" in q_faq_clean or "tuition" in q_faq_clean or faq.get("category") == "Fees & Scholarships")
+            is_faq_contact = ("contact" in q_faq_clean or "whom" in q_faq_clean or "helpline" in q_faq_clean or "phone" in q_faq_clean or "who can i contact" in q_faq_clean)
+            is_faq_rules = ("rule" in q_faq_clean or "curfew" in q_faq_clean or "leave" in q_faq_clean or "attendance" in q_faq_clean)
+            is_faq_blocks = ("block" in text_faq_clean and ("accommodation" in q_faq_clean or "available" in q_faq_clean or "room type" in q_faq_clean))
+
+            # Query intent: fee
+            if entities.get("is_fee_query"):
+                if is_faq_fee:
+                    bonus += 0.20
+                elif is_faq_contact:
+                    bonus -= 0.15
+
+            # Query intent: contact
+            if entities.get("is_contact_query"):
+                if is_faq_contact:
+                    bonus += 0.22
+                elif is_faq_fee and not entities.get("is_fee_query"):
+                    bonus -= 0.15
+
+            # Query intent: available blocks / accommodation options
+            if any(w in query.lower() for w in ["which hostel", "what ladies hostel", "what girls hostel", "blocks", "accommodation option"]):
+                if is_faq_blocks:
+                    bonus += 0.22
+
+            # Ladies hostel alignment & disambiguation
+            if entities.get("is_ladies_hostel"):
+                if any(w in text_faq_clean for w in ["ladies hostel", "girls hostel", "female student", "women hostel", "lh"]):
+                    bonus += 0.18
+                if any(w in q_faq_clean for w in ["mens", "boys hostel", "mens hostel"]):
+                    bonus -= 0.25
+                elif "men's" in q_faq or "mens" in q_faq_clean:
+                    bonus -= 0.15
+
+            # BCA course & fee alignment
+            if entities.get("is_bca"):
+                if "bca" in q_faq_clean or "bachelor of computer applications" in q_faq_clean:
+                    bonus += 0.25
+
+            # B.Sc. programme & fee alignment
+            if entities.get("is_bsc"):
+                if "b.sc" in q_faq or "bsc" in q_faq_clean or "bachelor of science" in q_faq_clean:
+                    bonus += 0.22
+
+            # Integrated M.Tech alignment
+            if entities.get("is_integrated_mtech"):
+                if "integrated m.tech" in q_faq or "integrated mtech" in q_faq_clean:
+                    bonus += 0.22
+
+            # Tuition fee vs hostel/mess fee alignment ("does fee include hostel")
+            if entities.get("is_fee_include_hostel"):
+                if "include hostel" in q_faq_clean or "academic fee vs residential" in faq.get("source_title", "").lower():
+                    bonus += 0.35
+
+            # Official fee structure directory alignment
+            if entities.get("is_official_fee_structure_query"):
+                if "where can i find the official fee structure" in q_faq_clean:
+                    bonus += 0.30
                 
             hybrid_scores[idx] += bonus
 

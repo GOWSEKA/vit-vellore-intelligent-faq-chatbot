@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-10-25T18:46:30.101869",
-  "total_records": 195,
+  "timestamp": "2026-10-25T22:38:28.677576",
+  "total_records": 205,
   "dataset_health_score_pct": 100.0,
   "missing_fields_count": 0,
   "missing_fields_details": [],
@@ -8,7 +8,7 @@
   "exact_duplicates_details": [],
   "near_duplicates_flagged": 0,
   "near_duplicates_details": [],
-  "source_endpoints_checked": 9,
+  "source_endpoints_checked": 10,
   "inaccessible_source_endpoints_count": 4,
   "inaccessible_source_endpoints": [
     {
@@ -39,8 +39,8 @@
   "category_distribution": {
     "Admissions": 30,
     "Courses & Schools": 24,
-    "Fees & Scholarships": 17,
-    "Hostels & Dining": 22,
+    "Fees & Scholarships": 22,
+    "Hostels & Dining": 27,
     "Academics & FFCS": 22,
     "Examinations & Grading": 17,
     "Placements & Internships": 16,

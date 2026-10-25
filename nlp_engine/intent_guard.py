@@ -67,8 +67,10 @@ class IntentGuard:
             top2_score = top2["score"]
             score_diff = top1_score - top2_score
             
-            # If top score is moderate and margin is very small, or top questions are both very plausible
-            if top1_score >= self.moderate_threshold and score_diff <= self.ambiguity_margin:
+            # If top score is moderate and margin is very small (genuinely tied candidates)
+            if top1_score >= self.moderate_threshold and top1_score < self.high_threshold and score_diff <= self.ambiguity_margin:
+                return self._build_clarification_response(query, ranked_candidates[:3])
+            elif top1_score >= self.high_threshold and score_diff < 0.005:
                 return self._build_clarification_response(query, ranked_candidates[:3])
 
         # High or solid confidence -> Direct Answer
