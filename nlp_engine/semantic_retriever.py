@@ -31,10 +31,17 @@ class SemanticRetriever:
         return hasher.hexdigest()
 
     def _ensure_model_loaded(self):
-        """Lazy load SentenceTransformer model on CPU."""
+        """Lazy load SentenceTransformer model on CPU with memory optimizations."""
         if self.model is None:
-            # Set to CPU explicitly
+            import torch
+            torch.set_num_threads(1)
+            try:
+                torch.set_num_interop_threads(1)
+            except Exception:
+                pass
+            # Explicitly load on CPU in eval mode
             self.model = SentenceTransformer(MODEL_NAME, device="cpu")
+            self.model.eval()
 
     def build_index(self, faq_records: List[Dict], force_rebuild: bool = False):
         """Encodes or loads precomputed embeddings for the FAQ records."""
@@ -90,12 +97,14 @@ class SemanticRetriever:
             return np.zeros(len(self.faq_records))
             
         self._ensure_model_loaded()
-        q_emb = self.model.encode(
-            [f"VIT Vellore: {cleaned_query}"],
-            show_progress_bar=False,
-            convert_to_numpy=True,
-            normalize_embeddings=True
-        )[0]
+        import torch
+        with torch.inference_mode():
+            q_emb = self.model.encode(
+                [f"VIT Vellore: {cleaned_query}"],
+                show_progress_bar=False,
+                convert_to_numpy=True,
+                normalize_embeddings=True
+            )[0]
         
         # Dot product of normalized vectors equals cosine similarity
         sims = np.dot(self.embeddings, q_emb)
