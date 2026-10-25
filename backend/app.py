@@ -196,28 +196,49 @@ def get_faqs_endpoint(category: Optional[str] = None, limit: int = 50):
     }
 
 # --- Static Frontend Serving ---
+# Resolve frontend directory with fallback to current working directory
+if not os.path.exists(FRONTEND_DIR):
+    alt_frontend = os.path.join(os.getcwd(), "frontend")
+    if os.path.exists(alt_frontend):
+        FRONTEND_DIR = alt_frontend
+
 if os.path.exists(FRONTEND_DIR):
     # Mount frontend static folders
-    if os.path.exists(os.path.join(FRONTEND_DIR, "css")):
-        app.mount("/css", StaticFiles(directory=os.path.join(FRONTEND_DIR, "css")), name="css")
-    if os.path.exists(os.path.join(FRONTEND_DIR, "js")):
-        app.mount("/js", StaticFiles(directory=os.path.join(FRONTEND_DIR, "js")), name="js")
-    if os.path.exists(os.path.join(FRONTEND_DIR, "assets")):
-        app.mount("/assets", StaticFiles(directory=os.path.join(FRONTEND_DIR, "assets")), name="assets")
+    css_dir = os.path.join(FRONTEND_DIR, "css")
+    js_dir = os.path.join(FRONTEND_DIR, "js")
+    assets_dir = os.path.join(FRONTEND_DIR, "assets")
+
+    if os.path.exists(css_dir):
+        app.mount("/css", StaticFiles(directory=css_dir), name="css")
+    if os.path.exists(js_dir):
+        app.mount("/js", StaticFiles(directory=js_dir), name="js")
+    if os.path.exists(assets_dir):
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
 
     @app.get("/", tags=["UI"])
+    @app.get("/index.html", tags=["UI"])
     def serve_landing_page():
+        """Serves the Discover VIT Vellore landing page."""
         landing_file = os.path.join(FRONTEND_DIR, "index.html")
         if os.path.exists(landing_file):
-            return FileResponse(landing_file)
+            return FileResponse(landing_file, media_type="text/html")
         return {"message": "VIT Vellore FAQ Chatbot API is running. See /docs for Swagger UI."}
 
     @app.get("/chat", tags=["UI"])
+    @app.get("/chat.html", tags=["UI"])
     def serve_chat_page():
+        """Serves the Chatbot - Ask Me dedicated interface."""
         chat_file = os.path.join(FRONTEND_DIR, "chat.html")
         if os.path.exists(chat_file):
-            return FileResponse(chat_file)
-        return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
+            return FileResponse(chat_file, media_type="text/html")
+        return FileResponse(os.path.join(FRONTEND_DIR, "index.html"), media_type="text/html")
+
+    @app.get("/favicon.ico", tags=["UI"])
+    def serve_favicon():
+        icon_file = os.path.join(FRONTEND_DIR, "assets", "vit_logo.svg")
+        if os.path.exists(icon_file):
+            return FileResponse(icon_file, media_type="image/svg+xml")
+        return JSONResponse(status_code=204, content=None)
 
 if __name__ == "__main__":
     import uvicorn

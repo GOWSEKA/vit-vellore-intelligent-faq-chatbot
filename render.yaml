@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: vit-vellore-faq-chatbot
+    name: vit-vellore-intelligent-faq-chatbot
     runtime: python
     region: oregon
     plan: free

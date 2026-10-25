@@ -335,7 +335,7 @@ To achieve a 100% publicly accessible website without subscription costs:
 2. Click **New +** &rarr; **Web Service**.
 3. Select your repository: `vit-vellore-intelligent-faq-chatbot`.
 4. Configure the service settings:
-   - **Name:** `vit-vellore-faq-chatbot`
+   - **Name:** `vit-vellore-intelligent-faq-chatbot`
    - **Region:** Oregon (US West) or Singapore
    - **Runtime:** `Python 3`
    - **Build Command:**
@@ -349,17 +349,17 @@ To achieve a 100% publicly accessible website without subscription costs:
    - **Plan:** Free
 5. Click **Create Web Service**.
 6. Wait 3–4 minutes for build completion. Render will assign you a live HTTPS URL:
-   `https://vit-vellore-faq-chatbot.onrender.com`
+   `https://vit-vellore-intelligent-faq-chatbot.onrender.com`
 7. Test the live health endpoint:
-   `https://vit-vellore-faq-chatbot.onrender.com/api/health`
+   `https://vit-vellore-intelligent-faq-chatbot.onrender.com/api/health`
 
 ---
 
 ### Part C: Deploying the Frontend on GitHub Pages
 
-1. In `frontend/js/config.js`, update `PRODUCTION_API_URL` to match your live Render backend URL:
+1. In `frontend/js/config.js`, `PRODUCTION_API_URL` is configured to match your live Render backend URL:
    ```javascript
-   const PRODUCTION_API_URL = "https://vit-vellore-faq-chatbot.onrender.com";
+   const PRODUCTION_API_URL = "https://vit-vellore-intelligent-faq-chatbot.onrender.com";
    ```
 
 2. Commit and push:
