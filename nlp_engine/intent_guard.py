@@ -60,9 +60,16 @@ class IntentGuard:
         if top1_score < self.minimum_threshold:
             return self._build_unavailable_response(query, ranked_candidates[:3])
 
+        # Check Exact Match bypass
+        is_exact_or_direct = (
+            top1["faq"]["question"].strip().lower() == query.strip().lower() or
+            top1["signals"].get("fuzzy", 0.0) >= 0.95 or
+            top1["signals"].get("semantic", 0.0) >= 0.96
+        )
+
         # Check Ambiguity:
         # If top 2 candidates are both strong and score difference is below margin threshold
-        if len(ranked_candidates) >= 2:
+        if len(ranked_candidates) >= 2 and not is_exact_or_direct:
             top2 = ranked_candidates[1]
             top2_score = top2["score"]
             score_diff = top1_score - top2_score
