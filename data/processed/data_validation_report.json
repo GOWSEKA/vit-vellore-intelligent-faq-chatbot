@@ -1,0 +1,56 @@
+{
+  "timestamp": "2026-10-25T18:46:30.101869",
+  "total_records": 195,
+  "dataset_health_score_pct": 100.0,
+  "missing_fields_count": 0,
+  "missing_fields_details": [],
+  "exact_duplicates_count": 0,
+  "exact_duplicates_details": [],
+  "near_duplicates_flagged": 0,
+  "near_duplicates_details": [],
+  "source_endpoints_checked": 9,
+  "inaccessible_source_endpoints_count": 4,
+  "inaccessible_source_endpoints": [
+    {
+      "title": "VIT Vellore B.Tech Admissions & VITEEE",
+      "url": "https://vit.ac.in/admissions/btech",
+      "http_status": 404,
+      "error": "HTTP Status != 200"
+    },
+    {
+      "title": "VIT B.Tech Fee Structure & Scholarships",
+      "url": "https://vit.ac.in/admissions/btech/fee-structure",
+      "http_status": 404,
+      "error": "HTTP Status != 200"
+    },
+    {
+      "title": "VIT Vellore Hostels & Dining Services",
+      "url": "https://vit.ac.in/campus-life/hostels",
+      "http_status": 404,
+      "error": "HTTP Status != 200"
+    },
+    {
+      "title": "VIT Office of Examinations & Evaluation Regulations",
+      "url": "https://vit.ac.in/academics/examinations",
+      "http_status": 404,
+      "error": "HTTP Status != 200"
+    }
+  ],
+  "category_distribution": {
+    "Admissions": 30,
+    "Courses & Schools": 24,
+    "Fees & Scholarships": 17,
+    "Hostels & Dining": 22,
+    "Academics & FFCS": 22,
+    "Examinations & Grading": 17,
+    "Placements & Internships": 16,
+    "Campus Facilities": 16,
+    "Student Portals & Administration": 15,
+    "Parent Enquiries": 11,
+    "Rankings & Accreditations": 5
+  },
+  "campus_filter_audit": {
+    "target_campus": "VIT Vellore",
+    "non_matching_records": 0
+  }
+}

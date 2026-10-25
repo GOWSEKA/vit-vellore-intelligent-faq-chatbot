@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover VIT Vellore | Intelligent University Portal & FAQ Chatbot</title>
+    <meta name="description" content="Discover VIT Vellore University: Admissions, VITEEE, Academic Programmes, Fees, Hostels, Examinations, Placements, and intelligent FAQ assistant 'Chatbot – Ask Me'.">
+    <link rel="icon" type="image/svg+xml" href="assets/vit_logo.svg">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ======================================================================
+         TOP NAVIGATION BAR
+         ====================================================================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo-wrap" aria-label="VIT Vellore Home">
+                <img src="assets/vit_logo.svg" alt="VIT Vellore Logo" class="brand-logo-img">
+            </a>
+
+            <nav class="nav-links" aria-label="Main Navigation">
+                <a href="#about" class="nav-link">About VIT</a>
+                <a href="#rankings" class="nav-link">Rankings</a>
+                <a href="#programmes" class="nav-link">Admissions & Fees</a>
+                <a href="#campus-life" class="nav-link">Campus & Hostels</a>
+                <a href="#faqs" class="nav-link">Popular FAQs</a>
+                <a href="#parents" class="nav-link">Parents</a>
+            </nav>
+
+            <div class="header-cta-group">
+                <a href="chat.html" class="btn btn-primary" id="header-ask-me-btn">
+                    <span>💬</span>
+                    <span>Chatbot – Ask Me</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ======================================================================
+         HERO SECTION: DISCOVER VIT VELLORE
+         ====================================================================== -->
+    <section class="hero-section" id="home">
+        <div class="hero-pattern"></div>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>★</span>
+                    <span>Institution of Eminence &bull; NAAC A++ Grade</span>
+                </div>
+                <h1 class="hero-title">
+                    Discover <span>VIT Vellore</span>
+                </h1>
+                <h2 class="hero-tagline">
+                    Your Campus. Your Questions. Your Answers.
+                </h2>
+                <p class="hero-description">
+                    Explore India's premier technological institution. Get instant, source-verified answers on VITEEE admissions, B.Tech courses, Category 1–5 fees, hostel allotments, FFCS regulations, and career placements.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="chat.html" class="btn btn-primary" style="padding: 0.85rem 1.75rem; font-size: 1.05rem;">
+                        <span>💬</span>
+                        <span>Chatbot – Ask Me</span>
+                    </a>
+                    <a href="#about" class="btn btn-outline" style="color: var(--white); border-color: rgba(255,255,255,0.4); padding: 0.85rem 1.5rem;">
+                        <span>Explore VIT</span>
+                        <span>↓</span>
+                    </a>
+                </div>
+
+                <div class="hero-stats-bar">
+                    <div class="stat-item">
+                        <h4>#11</h4>
+                        <p>NIRF Engineering 2024</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>#10</h4>
+                        <p>NIRF University 2024</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100%</h4>
+                        <p>FFCS Flexible Credits</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Interactive Preview Card -->
+            <div class="hero-card">
+                <div class="card-header-bar">
+                    <div class="assistant-info">
+                        <div class="bot-avatar">VIT</div>
+                        <div>
+                            <h3 style="font-size:1.05rem; font-weight:700; color:var(--white);">Chatbot – Ask Me</h3>
+                            <span id="hero-status-pill" style="font-size:0.78rem; color:#86efac; font-weight:500;">
+                                <span class="status-dot"></span> Online &bull; 195 Verified FAQs
+                            </span>
+                        </div>
+                    </div>
+                    <span style="font-size:0.75rem; background:rgba(255,255,255,0.1); padding:0.25rem 0.6rem; border-radius:999px;">
+                        Katpadi Campus
+                    </span>
+                </div>
+
+                <div class="mini-chat-sample">
+                    <div class="chat-bubble-mini bubble-user-mini">
+                        What is the Category 1 tuition fee for CSE at Vellore?
+                    </div>
+                    <div class="chat-bubble-mini bubble-bot-mini">
+                        For Group B engineering (including CSE, ECE, EEE, Mech, IT), Category 1 tuition is <strong>₹1,98,000 per year</strong>, plus a one-time refundable caution deposit of ₹3,000.
+                        <div style="font-size:0.75rem; color:#dc2626; font-weight:600; margin-top:0.4rem;">
+                            ✓ Source: Official VIT B.Tech Fee Bulletin 2025-26
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:0.75rem; font-size:0.8rem; font-weight:600; color:#94a3b8;">
+                    Try asking about:
+                </div>
+                <div class="prompt-chips-preview">
+                    <a href="chat.html?prompt=9%20pointer%20attendance%20rule" class="chip-tag">9-Pointer Rule</a>
+                    <a href="chat.html?prompt=Hostel%20AC%20and%20mess%20charges" class="chip-tag">Hostel & Mess Fees</a>
+                    <a href="chat.html?prompt=Super%20Dream%20placement%20package" class="chip-tag">Placements</a>
+                    <a href="chat.html?prompt=VITEEE%20exam%20pattern" class="chip-tag">VITEEE Pattern</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         ABOUT VIT VELLORE SECTION
+         ====================================================================== -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Excellence in Higher Education</div>
+                <h2 class="section-title">About VIT Vellore</h2>
+                <p class="section-desc">
+                    Founded in 1984 by visionary educator Dr. G. Viswanathan, Vellore Institute of Technology (VIT) has evolved into one of India's most prestigious institutions, recognized globally for innovation, research, and holistic education.
+                </p>
+            </div>
+
+            <div class="feature-tabs-grid">
+                <div class="feature-box">
+                    <div class="feature-icon-wrap">🏛️</div>
+                    <h3>Institution of Eminence</h3>
+                    <p>Recognized as an Institution of Eminence (IoE) by the Ministry of Education, Government of India, empowering VIT to deliver world-class infrastructure and global academic standards.</p>
+                    <ul class="feature-highlights">
+                        <li>NAAC 4th Cycle Accredited with A++ Grade</li>
+                        <li>Global ABET (USA) Engineering Accreditations</li>
+                        <li>Over 372-acre green smart campus in Katpadi, Vellore</li>
+                    </ul>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrap">📚</div>
+                    <h3>Fully Flexible Credit System</h3>
+                    <p>Pioneering education with FFCS, enabling students to curate their individual timetables, choose preferred faculty, and balance fast-track courses with industry internships.</p>
+                    <ul class="feature-highlights">
+                        <li>Choose Your Course & Preferred Faculty Slot</li>
+                        <li>9-Pointer Privilege (Attendance Exemption for CGPA ≥ 9.0)</li>
+                        <li>Cross-disciplinary Minors and Honors Degrees</li>
+                    </ul>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrap">💼</div>
+                    <h3>Prime Career Placements</h3>
+                    <p>Renowned Career Development Centre (CDC) with consistent national records, attracting world-renowned tech giants and top multinational product leaders.</p>
+                    <ul class="feature-highlights">
+                        <li>Dream (₹5.5L+) & Super Dream (₹10L+) Tiers</li>
+                        <li>Marquee Offers up to ₹1.02 Crore</li>
+                        <li>Limca Book of Records for campus recruitment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         VERIFIED NIRF RANKINGS SECTION
+         ====================================================================== -->
+    <section class="section section-alt" id="rankings">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">National & International Recognition</div>
+                <h2 class="section-title">Verified Institutional Rankings</h2>
+                <p class="section-desc">
+                    Every ranking is verified directly against official National Institutional Ranking Framework (NIRF) and statutory accreditation records.
+                </p>
+            </div>
+
+            <div class="rankings-grid">
+                <div class="ranking-card">
+                    <div class="rank-number">#11</div>
+                    <div class="rank-category">Engineering</div>
+                    <div class="rank-body">Ranked 11th among all Engineering Institutions across India.</div>
+                    <span class="rank-source-badge">NIRF 2024 &bull; Ministry of Education</span>
+                </div>
+
+                <div class="ranking-card">
+                    <div class="rank-number">#10</div>
+                    <div class="rank-category">University Category</div>
+                    <div class="rank-body">Ranked 10th best University in India across public and private sectors.</div>
+                    <span class="rank-source-badge">NIRF 2024 &bull; Ministry of Education</span>
+                </div>
+
+                <div class="ranking-card">
+                    <div class="rank-number">#11</div>
+                    <div class="rank-category">Research Institutions</div>
+                    <div class="rank-body">Recognized among India's top 11 research-intensive institutions.</div>
+                    <span class="rank-source-badge">NIRF 2024 &bull; Ministry of Education</span>
+                </div>
+
+                <div class="ranking-card">
+                    <div class="rank-number">#19</div>
+                    <div class="rank-category">Overall Ranking</div>
+                    <div class="rank-body">Ranked 19th Overall in India across all higher education institutions.</div>
+                    <span class="rank-source-badge">NIRF 2024 &bull; Ministry of Education</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         ADMISSIONS, PROGRAMMES & FEES SECTION
+         ====================================================================== -->
+    <section class="section" id="programmes">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Academics & Admissions</div>
+                <h2 class="section-title">Programmes, Fees & Hostels</h2>
+                <p class="section-desc">
+                    Official structures designed for transparency and student success at the Vellore campus.
+                </p>
+            </div>
+
+            <div class="feature-tabs-grid">
+                <!-- Admissions Card -->
+                <div class="feature-box">
+                    <div class="feature-icon-wrap">🎯</div>
+                    <h3>B.Tech Admissions & VITEEE</h3>
+                    <p>Admission to B.Tech programmes is conducted strictly through the computer-based VITEEE rank merit list.</p>
+                    <ul class="feature-highlights">
+                        <li>10+2 with 60% aggregate in PCM/PCB (50% for SC/ST &amp; J&amp;K/NE)</li>
+                        <li>125 Multiple Choice Questions (No negative marking)</li>
+                        <li>100% Transparent Online Counseling in rank phases</li>
+                    </ul>
+                    <a href="chat.html?category=Admissions" class="btn btn-outline btn-sm" style="margin-top:0.5rem;">
+                        Ask Admissions Questions &rarr;
+                    </a>
+                </div>
+
+                <!-- Fees & Scholarships Card -->
+                <div class="feature-box">
+                    <div class="feature-icon-wrap">💳</div>
+                    <h3>Tuition Fees &amp; GVSDP Scholarships</h3>
+                    <p>Tuition fees are structured transparently across 5 categories based on VITEEE rank merit.</p>
+                    <ul class="feature-highlights">
+                        <li>Category 1 Group A: Starts at ~₹1,73,000/yr</li>
+                        <li>Category 1 Group B (CSE, ECE, Mech): ₹1,98,000/yr</li>
+                        <li>GVSDP 100% waiver for State and Central Board toppers</li>
+                    </ul>
+                    <a href="chat.html?category=Fees%20%26%20Scholarships" class="btn btn-outline btn-sm" style="margin-top:0.5rem;">
+                        Ask Fee &amp; Scholarship Questions &rarr;
+                    </a>
+                </div>
+
+                <!-- Hostels Card -->
+                <div class="feature-box">
+                    <div class="feature-icon-wrap">🏡</div>
+                    <h3>Residential Hostels &amp; Dining</h3>
+                    <p>Modern residential facilities with 24x7 security, high-speed Wi-Fi, and multiple dining options.</p>
+                    <ul class="feature-highlights">
+                        <li>Single, 2-bed, 3-bed, 4-bed, and 6-bed rooms (AC/Non-AC)</li>
+                        <li>Special, Non-Vegetarian, and Pure Vegetarian mess halls</li>
+                        <li>CGPA-based room counseling for senior semesters</li>
+                    </ul>
+                    <a href="chat.html?category=Hostels%20%26%20Dining" class="btn btn-outline btn-sm" style="margin-top:0.5rem;">
+                        Ask Hostel &amp; Mess Questions &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         EXPLORE BY CATEGORY SECTION
+         ====================================================================== -->
+    <section class="section section-alt" id="campus-life">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Browse Knowledge Base</div>
+                <h2 class="section-title">Explore Campus Topics</h2>
+                <p class="section-desc">
+                    Click any category below to query verified information through Chatbot – Ask Me.
+                </p>
+            </div>
+
+            <div class="category-cards-grid">
+                <div class="cat-card" data-category="Admissions">
+                    <div>
+                        <div class="cat-card-header">
+                            <span class="cat-icon">📝</span>
+                            <h4>Admissions &amp; VITEEE</h4>
+                        </div>
+                        <p>Eligibility, exam slots, rank cutoffs, and counseling procedures.</p>
+                    </div>
+                    <span class="cat-action-link">Explore FAQs &rarr;</span>
+                </div>
+
+                <div class="cat-card" data-category="Fees & Scholarships">
+                    <div>
+                        <div class="cat-card-header">
+                            <span class="cat-icon">💰</span>
+                            <h4>Fees &amp; Scholarships</h4>
+                        </div>
+                        <p>Category 1–5 tuition, refund policy, and GVSDP merit waivers.</p>
+                    </div>
+                    <span class="cat-action-link">Explore FAQs &rarr;</span>
+                </div>
+
+                <div class="cat-card" data-category="Courses & Schools">
+                    <div>
+                        <div class="cat-card-header">
+                            <span class="cat-icon">💻</span>
+                            <h4>Courses &amp; Schools</h4>
+                        </div>
+                        <p>SCOPE, SITE, SMEC branches, specializations, and syllabus.</p>
+                    </div>
+                    <span class="cat-action-link">Explore FAQs &rarr;</span>
+                </div>
+
+                <div class="cat-card" data-category="Hostels & Dining">
+                    <div>
+                        <div class="cat-card-header">
+                            <span class="cat-icon">🛏️</span>
+                            <h4>Hostels &amp; Mess</h4>
+                        </div>
+                        <p>AC/Non-AC blocks, dining plans, biometric curfew, and leave passes.</p>
+                    </div>
+                    <span class="cat-action-link">Explore FAQs &rarr;</span>
+                </div>
+
+                <div class="cat-card" data-category="Academics & FFCS">
+                    <div>
+                        <div class="cat-card-header">
+                            <span class="cat-icon">⏱️</span>
+                            <h4>Academics &amp; FFCS</h4>
+                        </div>
+                        <p>9-pointer attendance rule, course add/drop, and credit limits.</p>
+                    </div>
+                    <span class="cat-action-link">Explore FAQs &rarr;</span>
+                </div>
+
+                <div class="cat-card" data-category="Examinations & Grading">
+                    <div>
+                        <div class="cat-card-header">
+                            <span class="cat-icon">📊</span>
+                            <h4>Exams &amp; Grading</h4>
+                        </div>
+                        <p>CAT 1, CAT 2, FAT patterns, 10-point scale, and revaluations.</p>
+                    </div>
+                    <span class="cat-action-link">Explore FAQs &rarr;</span>
+                </div>
+
+                <div class="cat-card" data-category="Placements & Internships">
+                    <div>
+                        <div class="cat-card-header">
+                            <span class="cat-icon">🚀</span>
+                            <h4>Placements &amp; Career</h4>
+                        </div>
+                        <p>Super Dream packages, top recruiters, and 8th semester internships.</p>
+                    </div>
+                    <span class="cat-action-link">Explore FAQs &rarr;</span>
+                </div>
+
+                <div class="cat-card" data-category="Campus Facilities">
+                    <div>
+                        <div class="cat-card-header">
+                            <span class="cat-icon">🏊</span>
+                            <h4>Facilities &amp; Fests</h4>
+                        </div>
+                        <p>Periyar Central Library, Riviera cultural fest, and health centre.</p>
+                    </div>
+                    <span class="cat-action-link">Explore FAQs &rarr;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         POPULAR FAQS ACCORDION SECTION
+         ====================================================================== -->
+    <section class="section" id="faqs">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Quick Answers</div>
+                <h2 class="section-title">Popular Frequently Asked Questions</h2>
+                <p class="section-desc">
+                    Verified answers to the most common queries asked by students and parents.
+                </p>
+            </div>
+
+            <div class="faq-accordion-wrap">
+                <div class="faq-item">
+                    <button class="faq-question-btn">
+                        <span>What is the Category 1 B.Tech tuition fee at VIT Vellore?</span>
+                        <span class="faq-chevron">▼</span>
+                    </button>
+                    <div class="faq-answer-pane">
+                        <p>For Group B branches (including Computer Science and Engineering, ECE, EEE, Mechanical, and IT), Category 1 tuition starts at ₹1,98,000 per year. For Group A branches (Biotechnology, Civil, Chemical), Category 1 tuition starts at ~₹1,73,000 per year, plus a one-time refundable caution deposit of ₹3,000.</p>
+                        <span class="faq-source-tag">Source: <a href="https://vit.ac.in/admissions/btech/fee-structure" target="_blank">VIT B.Tech Fee Structure</a></span>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question-btn">
+                        <span>What is the 9-Pointer Attendance Rule at VIT Vellore?</span>
+                        <span class="faq-chevron">▼</span>
+                    </button>
+                    <div class="faq-answer-pane">
+                        <p>Students maintaining a Cumulative Grade Point Average (CGPA) of 9.00 or above ('9-pointers') are exempt from the mandatory 75% minimum attendance requirement. However, they must still complete all internal assessments, quizzes, labs, CAT exams, and the FAT.</p>
+                        <span class="faq-source-tag">Source: <a href="https://vit.ac.in/academics/ffcs" target="_blank">VIT Academic Regulations</a></span>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question-btn">
+                        <span>Can Biology (PCB) students apply for engineering at VIT Vellore?</span>
+                        <span class="faq-chevron">▼</span>
+                    </button>
+                    <div class="faq-answer-pane">
+                        <p>Yes. Candidates with Physics, Chemistry, and Biology (PCB) in 10+2 are eligible for B.Tech programmes in Biotechnology, Biomedical Engineering, and CSE with specialization in Bioinformatics. They take the Biology section in VITEEE instead of Mathematics.</p>
+                        <span class="faq-source-tag">Source: <a href="https://vit.ac.in/admissions/btech" target="_blank">VITEEE Eligibility Criteria</a></span>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question-btn">
+                        <span>What are the curfew and biometric attendance rules in hostels?</span>
+                        <span class="faq-chevron">▼</span>
+                    </button>
+                    <div class="faq-answer-pane">
+                        <p>Hostel biometric attendance is taken every evening. For first-year students, curfew is generally 8:30 PM to 9:00 PM; for senior students, curfew is 9:00 PM. Outings and leaves are managed digitally through the VTOP e-gate pass system with digital warden and parent verification.</p>
+                        <span class="faq-source-tag">Source: <a href="https://vit.ac.in/campus-life/hostels" target="_blank">VIT Hostel Code of Conduct</a></span>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question-btn">
+                        <span>What are Dream and Super Dream placement offers?</span>
+                        <span class="faq-chevron">▼</span>
+                    </button>
+                    <div class="faq-answer-pane">
+                        <p>The Career Development Centre (CDC) categorizes placement offers by compensation: Regular Offers (up to ₹5.5 LPA), Dream Offers (between ₹5.5 LPA and ₹10 LPA), Super Dream Offers (above ₹10 LPA), and Marquee Offers (premier product companies offering ₹25 LPA to ₹1 Crore+).</p>
+                        <span class="faq-source-tag">Source: <a href="https://vit.ac.in/placements/overview" target="_blank">VIT Placements Overview</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <a href="chat.html" class="btn btn-primary" style="padding: 0.85rem 2rem;">
+                    <span>💬 Have More Questions? Ask in Chat</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         STUDENT & PARENT SUPPORT SECTION
+         ====================================================================== -->
+    <section class="section section-alt" id="parents">
+        <div class="container">
+            <div class="cta-banner">
+                <div class="cta-text">
+                    <h3>Student &amp; Parent Assistance</h3>
+                    <p>
+                        Parents can monitor attendance, continuous assessment grades, and hostel logs via the VTOP Parent Portal. Faculty Proctors provide dedicated guidance for every student throughout their four-year journey.
+                    </p>
+                </div>
+                <div>
+                    <a href="chat.html?category=Parent%20Enquiries" class="btn btn-primary" style="white-space:nowrap; padding:0.9rem 1.75rem;">
+                        Parent FAQ Assistance &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         SITE FOOTER
+         ====================================================================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/vit_logo.svg" alt="VIT Logo" style="height:44px; filter:brightness(0) invert(1);">
+                    <p>
+                        Vellore Institute of Technology (VIT), Katpadi, Vellore, Tamil Nadu - 632014, India.<br>
+                        An Institution of Eminence recognized for world-class technical education and impactful research.
+                    </p>
+                    <p style="margin-top:0.75rem; color:#93c5fd; font-size:0.85rem;">
+                        <strong>Campus Helpline:</strong> +91-416-2243091 / +91-416-2202020
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Official Portals</h5>
+                    <ul class="footer-links">
+                        <li><a href="https://vit.ac.in/" target="_blank" rel="noopener">VIT Main Website</a></li>
+                        <li><a href="https://vtop.vit.ac.in/" target="_blank" rel="noopener">VTOP Student Portal</a></li>
+                        <li><a href="https://vit.ac.in/admission" target="_blank" rel="noopener">Admissions (VITEEE)</a></li>
+                        <li><a href="https://vit.ac.in/academics/ffcs" target="_blank" rel="noopener">FFCS Academics</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Student Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="https://vit.ac.in/campus-life/hostels" target="_blank" rel="noopener">Hostels &amp; Dining</a></li>
+                        <li><a href="https://vit.ac.in/placements/overview" target="_blank" rel="noopener">Career Placements</a></li>
+                        <li><a href="https://vit.ac.in/campus-life/facilities" target="_blank" rel="noopener">Central Library</a></li>
+                        <li><a href="https://vit.ac.in/about/anti-ragging" target="_blank" rel="noopener">Anti-Ragging Helpline</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Chatbot Engine</h5>
+                    <ul class="footer-links">
+                        <li><a href="chat.html">Chatbot – Ask Me</a></li>
+                        <li><a href="chat.html?category=Admissions">Admissions Assistant</a></li>
+                        <li><a href="chat.html?category=Hostels%20%26%20Dining">Hostel Queries</a></li>
+                        <li><a href="chat.html?category=Examinations%20%26%20Grading">Exam Patterns</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    &copy; 2025–2026 Vellore Institute of Technology. All verified information sourced from official university publications.
+                </div>
+                <div>
+                    Powered by Natural Language Processing (Hybrid Semantic &amp; Lexical Retrieval Engine)
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

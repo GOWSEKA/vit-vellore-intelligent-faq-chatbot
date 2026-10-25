@@ -1,0 +1,185 @@
+{
+  "TF-IDF Baseline": [
+    {
+      "query_id": "TEST-003",
+      "query": "Is there any relaxation in the 75% attendance rule for students with high CGPA?",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-ACA-003",
+      "retrieved_faq_id": "VIT-ACA-004"
+    },
+    {
+      "query_id": "TEST-007",
+      "query": "What is the difference between super dream and regular dream job packages?",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-PLC-001",
+      "retrieved_faq_id": "VIT-PLC-014"
+    },
+    {
+      "query_id": "TEST-013",
+      "query": "What is the scholarship for state board toppers under GVSDP?",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-FEE-002",
+      "retrieved_faq_id": "VIT-FEE-017"
+    },
+    {
+      "query_id": "TEST-017",
+      "query": "what is the rank cuttoff for csee in cat 1",
+      "query_type": "typo",
+      "expected_faq_id": "VIT-ADM-003",
+      "retrieved_faq_id": "VIT-EXM-012"
+    },
+    {
+      "query_id": "TEST-020",
+      "query": "what is course cse2001 syllabus and details",
+      "query_type": "course_code",
+      "expected_faq_id": "VIT-CRS-007",
+      "retrieved_faq_id": "VIT-ACA-020"
+    }
+  ],
+  "Semantic (MiniLM)": [
+    {
+      "query_id": "TEST-002",
+      "query": "Can students with PCB in 12th get into engineering at VIT?",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-ADM-005",
+      "retrieved_faq_id": "VIT-CRS-004"
+    },
+    {
+      "query_id": "TEST-003",
+      "query": "Is there any relaxation in the 75% attendance rule for students with high CGPA?",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-ACA-003",
+      "retrieved_faq_id": "VIT-ACA-004"
+    },
+    {
+      "query_id": "TEST-012",
+      "query": "What is the passing criteria in FAT exam?",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-EXM-003",
+      "retrieved_faq_id": "VIT-EXM-009"
+    },
+    {
+      "query_id": "TEST-019",
+      "query": "how to apply for outting or weekend leve pass in vtop",
+      "query_type": "typo",
+      "expected_faq_id": "VIT-HST-006",
+      "retrieved_faq_id": "VIT-ADM-002"
+    },
+    {
+      "query_id": "TEST-020",
+      "query": "what is course cse2001 syllabus and details",
+      "query_type": "course_code",
+      "expected_faq_id": "VIT-CRS-007",
+      "retrieved_faq_id": "VIT-CRS-015"
+    }
+  ],
+  "RapidFuzz (Typo Matcher)": [
+    {
+      "query_id": "TEST-001",
+      "query": "How much do I have to pay for B.Tech CSE under Category 1 at Vellore?",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-FEE-001",
+      "retrieved_faq_id": "VIT-CRS-001"
+    },
+    {
+      "query_id": "TEST-003",
+      "query": "Is there any relaxation in the 75% attendance rule for students with high CGPA?",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-ACA-003",
+      "retrieved_faq_id": "VIT-ACA-004"
+    },
+    {
+      "query_id": "TEST-005",
+      "query": "Can I get admission into BTech through JEE Mains marks?",
+      "query_type": "negation",
+      "expected_faq_id": "VIT-ADM-007",
+      "retrieved_faq_id": "VIT-ADM-001"
+    },
+    {
+      "query_id": "TEST-007",
+      "query": "What is the difference between super dream and regular dream job packages?",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-PLC-001",
+      "retrieved_faq_id": "VIT-HST-009"
+    },
+    {
+      "query_id": "TEST-008",
+      "query": "How can my parents check my day to day attendance and exam marks?",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-PRN-001",
+      "retrieved_faq_id": "VIT-ACA-005"
+    },
+    {
+      "query_id": "TEST-010",
+      "query": "What is the fee refund policy if I cancel my admission 20 days after the date?",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-FEE-004",
+      "retrieved_faq_id": "VIT-ADM-029"
+    },
+    {
+      "query_id": "TEST-011",
+      "query": "Tell me about the annual cultural fest Riviera and tech fest gravitas",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-FAC-004",
+      "retrieved_faq_id": "VIT-ADM-OFF-008"
+    },
+    {
+      "query_id": "TEST-012",
+      "query": "What is the passing criteria in FAT exam?",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-EXM-003",
+      "retrieved_faq_id": "VIT-EXM-017"
+    },
+    {
+      "query_id": "TEST-016",
+      "query": "hosstel veg and nonveg mess chargess per year",
+      "query_type": "typo",
+      "expected_faq_id": "VIT-HST-002",
+      "retrieved_faq_id": "VIT-HST-009"
+    },
+    {
+      "query_id": "TEST-017",
+      "query": "what is the rank cuttoff for csee in cat 1",
+      "query_type": "typo",
+      "expected_faq_id": "VIT-ADM-003",
+      "retrieved_faq_id": "VIT-ACA-021"
+    },
+    {
+      "query_id": "TEST-020",
+      "query": "what is course cse2001 syllabus and details",
+      "query_type": "course_code",
+      "expected_faq_id": "VIT-CRS-007",
+      "retrieved_faq_id": "VIT-CRS-021"
+    }
+  ],
+  "Hybrid Engine + Intent Guard": [
+    {
+      "query_id": "TEST-003",
+      "query": "Is there any relaxation in the 75% attendance rule for students with high CGPA?",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-ACA-003",
+      "retrieved_faq_id": "VIT-ACA-004"
+    },
+    {
+      "query_id": "TEST-012",
+      "query": "What is the passing criteria in FAT exam?",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-EXM-003",
+      "retrieved_faq_id": "VIT-EXM-017"
+    },
+    {
+      "query_id": "TEST-013",
+      "query": "What is the scholarship for state board toppers under GVSDP?",
+      "query_type": "paraphrase",
+      "expected_faq_id": "VIT-FEE-002",
+      "retrieved_faq_id": "VIT-FEE-017"
+    },
+    {
+      "query_id": "TEST-017",
+      "query": "what is the rank cuttoff for csee in cat 1",
+      "query_type": "typo",
+      "expected_faq_id": "VIT-ADM-003",
+      "retrieved_faq_id": "VIT-EXM-012"
+    }
+  ]
+}

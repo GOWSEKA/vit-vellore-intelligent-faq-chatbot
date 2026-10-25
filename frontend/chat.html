@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot – Ask Me | Official VIT Vellore FAQ Assistant</title>
+    <meta name="description" content="Official NLP-powered chatbot for VIT Vellore University. Instant answers on admissions, courses, fees, hostels, examinations, and placements.">
+    <link rel="icon" type="image/svg+xml" href="assets/vit_logo.svg">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+<body class="chat-page-body">
+
+    <div class="chat-layout">
+        <!-- ==================================================================
+             LEFT SIDEBAR (DESKTOP / MOBILE DRAWER)
+             ================================================================== -->
+        <aside class="chat-sidebar" id="chat-sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-brand">
+                    <img src="assets/vit_logo.svg" alt="VIT Logo" style="height:38px; filter:brightness(0) invert(1);">
+                </a>
+            </div>
+
+            <div class="sidebar-content">
+                <div class="sidebar-section-title">Explore by Domain</div>
+                <ul class="quick-category-list">
+                    <li>
+                        <button class="quick-category-btn" data-category="Admissions">
+                            <span>🎯</span> Admissions &amp; VITEEE
+                        </button>
+                    </li>
+                    <li>
+                        <button class="quick-category-btn" data-category="Fees & Scholarships">
+                            <span>💳</span> Fees &amp; Scholarships
+                        </button>
+                    </li>
+                    <li>
+                        <button class="quick-category-btn" data-category="Courses & Schools">
+                            <span>💻</span> Courses &amp; Schools
+                        </button>
+                    </li>
+                    <li>
+                        <button class="quick-category-btn" data-category="Hostels & Dining">
+                            <span>🏡</span> Hostels &amp; Mess
+                        </button>
+                    </li>
+                    <li>
+                        <button class="quick-category-btn" data-category="Academics & FFCS">
+                            <span>⏱️</span> Academics &amp; FFCS
+                        </button>
+                    </li>
+                    <li>
+                        <button class="quick-category-btn" data-category="Examinations & Grading">
+                            <span>📊</span> Exams, CAT &amp; FAT
+                        </button>
+                    </li>
+                    <li>
+                        <button class="quick-category-btn" data-category="Placements & Internships">
+                            <span>💼</span> CDC Placements
+                        </button>
+                    </li>
+                    <li>
+                        <button class="quick-category-btn" data-category="Campus Facilities">
+                            <span>🏊</span> Facilities &amp; Library
+                        </button>
+                    </li>
+                    <li>
+                        <button class="quick-category-btn" data-category="Student Portals & Administration">
+                            <span>🏛️</span> VTOP &amp; Proctor Office
+                        </button>
+                    </li>
+                    <li>
+                        <button class="quick-category-btn" data-category="Parent Enquiries">
+                            <span>👨‍👩‍👦</span> Parent Enquiries
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="sidebar-stats-box">
+                    <p><strong>Campus:</strong> VIT Vellore (Katpadi)</p>
+                    <p><strong>Database:</strong> 195 Verified Official FAQs</p>
+                    <p><strong>NLP Architecture:</strong> MiniLM + TF-IDF Hybrid</p>
+                    <p><strong>Strict Policy:</strong> Zero Hallucination Guarantee</p>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <button class="btn btn-navy btn-sm" id="new-chat-btn" style="width:100%; border:1px solid rgba(255,255,255,0.2);">
+                    <span>+</span> New Conversation
+                </button>
+                <a href="index.html" class="btn btn-outline btn-sm" style="width:100%; color:#cbd5e1; border-color:rgba(255,255,255,0.2); text-align:center;">
+                    &larr; Back to Main Portal
+                </a>
+            </div>
+        </aside>
+
+        <!-- ==================================================================
+             MAIN CHAT INTERFACE
+             ================================================================== -->
+        <main class="chat-main">
+            <!-- App Bar -->
+            <header class="chat-topbar">
+                <div class="chat-header-info">
+                    <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle Sidebar">
+                        ☰
+                    </button>
+                    <div class="chat-avatar-large">VIT</div>
+                    <div class="chat-header-text">
+                        <h1>Chatbot – Ask Me</h1>
+                        <span class="chat-status-pill" id="connection-status-pill">
+                            &bull; Connected &bull; 195 Verified FAQs
+                        </span>
+                    </div>
+                </div>
+
+                <div class="chat-topbar-actions">
+                    <span id="active-category-indicator" style="display:none; font-size:0.8rem; background:#fee2e2; color:#991b1b; padding:0.25rem 0.65rem; border-radius:999px; font-weight:600;">
+                    </span>
+                    <button class="btn btn-outline btn-sm" id="clear-chat-btn" title="Clear current messages">
+                        Clear Chat
+                    </button>
+                    <button class="btn btn-outline btn-sm" id="settings-btn" title="Inspect / Change API Endpoint" style="padding:0.4rem 0.65rem;">
+                        ⚙️ API
+                    </button>
+                </div>
+            </header>
+
+            <!-- Messages Stream Area -->
+            <div class="chat-messages-container" id="chat-messages">
+                <!-- Welcome Card -->
+                <div class="welcome-card" id="welcome-card">
+                    <div class="chat-avatar-large" style="margin: 0 auto 1rem; width:56px; height:56px; font-size:1.35rem;">
+                        VIT
+                    </div>
+                    <h3>Welcome to Chatbot – Ask Me</h3>
+                    <p>
+                        I am your official intelligent FAQ assistant for <strong>VIT Vellore</strong>. Ask me anything about VITEEE entrance tests, branch cutoffs, Category 1–5 tuition fees, hostel room types, mess dining, 9-pointer attendance privileges, CAT/FAT examinations, and campus placements.
+                    </p>
+                    <div style="font-size:0.82rem; font-weight:700; text-transform:uppercase; color:#64748b; margin-bottom:0.75rem; letter-spacing:1px;">
+                        Quick Suggestions to get started:
+                    </div>
+                    <div class="prompt-chips-preview" style="justify-content:center;">
+                        <button class="quick-prompt-btn" data-prompt="What is the B.Tech CSE Category 1 tuition fee?">B.Tech CSE Fee</button>
+                        <button class="quick-prompt-btn" data-prompt="How does the 9-pointer attendance waiver work?">9-Pointer Attendance</button>
+                        <button class="quick-prompt-btn" data-prompt="What are the hostel room types and mess food options?">Hostel &amp; Mess</button>
+                        <button class="quick-prompt-btn" data-prompt="What is the VITEEE entrance exam pattern?">VITEEE Exam Pattern</button>
+                        <button class="quick-prompt-btn" data-prompt="What are Super Dream and Marquee placement packages?">Super Dream Packages</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Prompts Carousel Bar -->
+            <div class="quick-prompts-bar">
+                <button class="quick-prompt-btn" data-prompt="What is VITEEE eligibility for PCB students?">Biology Eligibility</button>
+                <button class="quick-prompt-btn" data-prompt="What are the B.Tech fee categories 1 to 5?">Fee Categories 1–5</button>
+                <button class="quick-prompt-btn" data-prompt="What is FFCS Fully Flexible Credit System?">FFCS Credit System</button>
+                <button class="quick-prompt-btn" data-prompt="What happens if attendance is below 75% in a course?">Debarred Rules</button>
+                <button class="quick-prompt-btn" data-prompt="What are the passing criteria in FAT exam?">FAT Passing Criteria</button>
+                <button class="quick-prompt-btn" data-prompt="What is the scholarship for state board toppers?">GVSDP Scholarship</button>
+                <button class="quick-prompt-btn" data-prompt="How to apply for weekend outing in VTOP?">Hostel Outing Pass</button>
+                <button class="quick-prompt-btn" data-prompt="What is the average placement package at VIT Vellore?">Average Placement CTC</button>
+            </div>
+
+            <!-- Chat Input Footer -->
+            <footer class="chat-input-area">
+                <form class="chat-input-form" id="chat-form">
+                    <input
+                        type="text"
+                        class="chat-input-field"
+                        id="chat-input"
+                        placeholder="Ask any question about VIT Vellore (e.g. fees, hostels, ffcs, exams, placements)..."
+                        autocomplete="off"
+                        required
+                    >
+                    <button type="submit" class="chat-send-btn" id="send-btn" aria-label="Send Message">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </form>
+                <div class="input-disclaimer">
+                    Official VIT Vellore Knowledge Base &bull; Every answer backed by verified university sources &bull; Zero Hallucination Guarantee
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- ==================================================================
+         SETTINGS & API CONFIGURATION MODAL
+         ================================================================== -->
+    <div class="modal-overlay" id="settings-modal">
+        <div class="modal-card">
+            <h3 style="font-size:1.25rem; font-weight:800; color:var(--navy-900); margin-bottom:0.75rem;">
+                Backend API Configuration
+            </h3>
+            <p style="font-size:0.88rem; color:var(--slate-600); margin-bottom:1.25rem; line-height:1.5;">
+                This frontend connects to the NLP retrieval backend via HTTPS. If you have deployed your FastAPI backend to Render or another platform, confirm or update the backend URL below.
+            </p>
+
+            <div style="margin-bottom:1.25rem;">
+                <label for="custom-api-input" style="display:block; font-size:0.82rem; font-weight:700; color:var(--slate-700); margin-bottom:0.4rem;">
+                    Active Backend API URL:
+                </label>
+                <input
+                    type="url"
+                    id="custom-api-input"
+                    class="chat-input-field"
+                    style="width:100%; background:var(--slate-100); border:1px solid var(--slate-300); border-radius:var(--radius-sm); padding:0.65rem 0.85rem; font-size:0.9rem;"
+                    placeholder="https://your-service.onrender.com"
+                >
+            </div>
+
+            <div style="display:flex; justify-content:flex-end; gap:0.75rem;">
+                <button class="btn btn-outline btn-sm" id="close-modal-btn">Cancel</button>
+                <button class="btn btn-primary btn-sm" id="save-api-btn">Save &amp; Reconnect</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>

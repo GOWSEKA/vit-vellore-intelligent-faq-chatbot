@@ -1,0 +1,5 @@
+model_name,top1_accuracy_pct,top3_accuracy_pct,ood_fallback_accuracy_pct,mean_latency_ms,p95_latency_ms,in_domain_tested,ood_tested
+TF-IDF Baseline,80.0,100.0,100.0,5.04,7.57,25,5
+Semantic (MiniLM),80.0,80.0,0.0,156.77,19.54,25,5
+RapidFuzz (Typo Matcher),52.0,68.0,0.0,3.89,5.29,25,5
+Hybrid Engine + Intent Guard,76.0,84.0,100.0,116.2,26.72,25,5

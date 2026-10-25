@@ -1,0 +1,92 @@
+[
+  {
+    "title": "VIT Main Portal",
+    "url": "https://vit.ac.in/",
+    "category": "General",
+    "type": "official_website",
+    "checked_at": "2026-10-25T18:45:01.089467",
+    "http_status": 200,
+    "content_length": 573062,
+    "accessible": true
+  },
+  {
+    "title": "VIT Vellore B.Tech Admissions & VITEEE",
+    "url": "https://vit.ac.in/admissions/btech",
+    "category": "Admissions",
+    "type": "official_website",
+    "checked_at": "2026-10-25T18:45:02.754946",
+    "http_status": 404,
+    "content_length": 294661,
+    "accessible": false
+  },
+  {
+    "title": "VIT B.Tech Fee Structure & Scholarships",
+    "url": "https://vit.ac.in/admissions/btech/fee-structure",
+    "category": "Fees & Scholarships",
+    "type": "official_website",
+    "checked_at": "2026-10-25T18:45:05.854663",
+    "http_status": 404,
+    "content_length": 294725,
+    "accessible": false
+  },
+  {
+    "title": "VIT Vellore Hostels & Dining Services",
+    "url": "https://vit.ac.in/campus-life/hostels",
+    "category": "Hostels & Dining",
+    "type": "official_website",
+    "checked_at": "2026-10-25T18:45:08.367815",
+    "http_status": 404,
+    "content_length": 294665,
+    "accessible": false
+  },
+  {
+    "title": "VIT Academics & Fully Flexible Credit System (FFCS)",
+    "url": "https://vit.ac.in/academics/ffcs",
+    "category": "Academics & FFCS",
+    "type": "official_website",
+    "checked_at": "2026-10-25T18:45:10.792478",
+    "http_status": 200,
+    "content_length": 309988,
+    "accessible": true
+  },
+  {
+    "title": "VIT Office of Examinations & Evaluation Regulations",
+    "url": "https://vit.ac.in/academics/examinations",
+    "category": "Examinations & Grading",
+    "type": "official_website",
+    "checked_at": "2026-10-25T18:45:13.105685",
+    "http_status": 404,
+    "content_length": 294676,
+    "accessible": false
+  },
+  {
+    "title": "VIT Career Development Centre & Placements",
+    "url": "https://vit.ac.in/placements/overview",
+    "category": "Placements & Internships",
+    "type": "official_website",
+    "checked_at": "2026-10-25T18:45:15.153470",
+    "http_status": 200,
+    "content_length": 476320,
+    "accessible": true
+  },
+  {
+    "title": "VIT Campus Facilities & Central Library",
+    "url": "https://vit.ac.in/campus-life/facilities",
+    "category": "Campus Facilities",
+    "type": "official_website",
+    "checked_at": "2026-10-25T18:45:17.874571",
+    "http_status": 200,
+    "content_length": 600490,
+    "accessible": true
+  },
+  {
+    "title": "VIT Administration, Proctor Office & Contact Details",
+    "url": "https://vit.ac.in/about/contact-us",
+    "category": "Student Portals & Administration",
+    "type": "official_website",
+    "checked_at": "2026-10-25T18:45:21.024688",
+    "http_status": 200,
+    "content_length": 284604,
+    "accessible": true
+  }
+]
