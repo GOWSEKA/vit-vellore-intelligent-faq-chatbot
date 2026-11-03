@@ -23,10 +23,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application source code and precomputed knowledge base
 COPY . .
 
-# Run data verification and ensure embeddings cache exists
+# Download lightweight ONNX model and ensure embeddings cache exists
+RUN python scripts/download_onnx.py
 RUN python scripts/build_embeddings.py
 
 EXPOSE 8000
 
 # Start command binding to 0.0.0.0 and dynamic PORT
-CMD ["sh", "-c", "uvicorn backend.app:app --host 0.0.0.0 --port ${PORT:-8000}"]
+CMD ["sh", "-c", "uvicorn backend.app:app --host 0.0.0.0 --port ${PORT:-8000} --workers 1 --no-access-log"]

@@ -4,8 +4,8 @@ services:
     runtime: python
     region: oregon
     plan: free
-    buildCommand: "pip install torch --index-url https://download.pytorch.org/whl/cpu && pip install -r requirements.txt && python scripts/build_embeddings.py"
-    startCommand: "uvicorn backend.app:app --host 0.0.0.0 --port $PORT"
+    buildCommand: "pip install torch --index-url https://download.pytorch.org/whl/cpu && pip install -r requirements.txt && python scripts/download_onnx.py && python scripts/build_embeddings.py"
+    startCommand: "uvicorn backend.app:app --host 0.0.0.0 --port $PORT --workers 1 --no-access-log"
     healthCheckPath: /api/health
     envVars:
       - key: PYTHON_VERSION

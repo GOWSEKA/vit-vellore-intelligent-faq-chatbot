@@ -7,6 +7,7 @@ Mounts frontend static assets for seamless local development and testing.
 
 import os
 import sys
+import gc
 from datetime import datetime
 from typing import Optional, List, Dict, Any
 
@@ -51,6 +52,7 @@ faq_engine = FAQEngine(
 
 try:
     faq_engine.load_data()
+    gc.collect()
 except Exception as e:
     print(f"[Warning] FAQEngine initial load deferred: {e}")
 

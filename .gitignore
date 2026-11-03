@@ -54,3 +54,9 @@ desktop.ini
 
 # Zip archives
 *.zip
+
+# Local ONNX model downloads (downloaded during build)
+data/model_onnx/
+
+# Backup files
+*.bak
