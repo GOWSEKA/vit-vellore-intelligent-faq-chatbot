@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <defs>
+    <linearGradient id="vitNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#002147"/>
+      <stop offset="100%" stop-color="#0a192f"/>
+    </linearGradient>
+    <linearGradient id="vitRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c4122f"/>
+      <stop offset="100%" stop-color="#8a0c20"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#b8860b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Crest Icon -->
+  <g transform="translate(10, 10)">
+    <!-- Outer Shield -->
+    <path d="M30 0 L58 12 L58 38 C58 52 46 62 30 68 C14 62 2 52 2 38 L2 12 Z" fill="url(#vitNavy)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+    
+    <!-- Red Accent Chevron -->
+    <path d="M12 24 L30 14 L48 24 L48 34 L30 24 L12 34 Z" fill="url(#vitRed)"/>
+    
+    <!-- Open Book / Wisdom Emblem -->
+    <path d="M18 42 C24 38 30 40 30 40 C30 40 36 38 42 42 L42 50 C36 46 30 48 30 48 C30 48 24 46 18 50 Z" fill="#ffffff" opacity="0.95"/>
+    
+    <!-- Gold Star of Excellence -->
+    <polygon points="30,22 32,27 37,27 33,30 35,35 30,32 25,35 27,30 23,27 28,27" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(85, 24)">
+    <text x="0" y="20" font-family="'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="900" font-size="28" fill="#002147" letter-spacing="1.5">
+      VIT
+    </text>
+    <text x="65" y="20" font-family="'Inter', -apple-system, sans-serif" font-weight="700" font-size="22" fill="#c4122f" letter-spacing="0.5">
+      VELLORE
+    </text>
+    <text x="2" y="38" font-family="'Inter', -apple-system, sans-serif" font-weight="600" font-size="10.5" fill="#556987" letter-spacing="2">
+      INSTITUTION OF EMINENCE
+    </text>
+  </g>
+</svg>

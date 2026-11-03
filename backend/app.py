@@ -235,6 +235,9 @@ if os.path.exists(FRONTEND_DIR):
 
     @app.get("/favicon.ico", tags=["UI"])
     def serve_favicon():
+        fav_png = os.path.join(FRONTEND_DIR, "assets", "favicon.png")
+        if os.path.exists(fav_png):
+            return FileResponse(fav_png, media_type="image/png")
         icon_file = os.path.join(FRONTEND_DIR, "assets", "vit_logo.svg")
         if os.path.exists(icon_file):
             return FileResponse(icon_file, media_type="image/svg+xml")

@@ -110,6 +110,9 @@ img, svg {
 .brand-logo-img {
     height: 48px;
     width: auto;
+    max-width: 240px;
+    object-fit: contain;
+    display: block;
 }
 
 .nav-links {
@@ -809,6 +812,10 @@ img, svg {
 }
 
 @media (max-width: 768px) {
+    .brand-logo-img {
+        height: 38px;
+        max-width: 180px;
+    }
     .nav-links {
         display: none;
     }
